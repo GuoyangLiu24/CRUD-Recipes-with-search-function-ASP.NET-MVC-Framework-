@@ -1,0 +1,22 @@
+﻿@model Recipe
+@{
+    ViewBag.Title = "View Recipe";
+}
+
+<div class="panel-body">
+    <div>
+        <h2>@Model.Name</h2>
+        <br>
+        <h3>Ingredients:</h3>
+        <p>@Model.Ingredients</p>
+        <h3>Steps:</h3>
+        <p>@Model.Steps</p>
+        <div class="text-center">
+            <a class="btn btn-primary" style="width:300px;" asp-action="ReviewRecipe">Review this Recipe</a>
+        </div>
+    </div>
+</div>
+
+
+
+

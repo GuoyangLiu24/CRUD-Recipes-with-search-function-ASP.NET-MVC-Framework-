@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet"
+          asp-href-include="/lib/bootstrap/**/*.min.css"
+          asp-href-exclude="**/*-reboot*,**/*-grid*" />
+    <link href="~/css/AssignmentStyles.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <title>@ViewBag.Title</title>
+    <style>
+
+        .navbar {
+            width: 100%;
+            background-color: #555;
+            overflow: auto;
+        }
+
+            .navbar a {
+                float: left;
+                padding: 0 50px 0 50px;
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+            }
+
+                .navbar a:hover {
+                    background-color: #000;
+                }
+    </style>
+</head>
+<body>
+    <div id="allPage">
+        <div id="header" style="position: absolute; left: 0px; top: 0px; width: 980px; height: 230px; z-index: 1">
+            <img src="~/images/bannerbanner.jpg" alt="banner" width="980">
+        </div>
+
+        <div class="navbar" style="position: absolute; left: 0px; top: 275px; width: 980px; z-index: 2">
+            <a asp-controller="Home" asp-action="index"><i class="fa fa-fw fa-home"></i>   Home</a>
+            <a asp-controller="Account" asp-action="Login"><i class="fa fa-fw fa-user"></i>   Login</a>
+            <a href="mailto:sanmerge@gmail.com"><i class="fa fa-fw fa-envelope"></i>   Contact</a>
+            <a asp-controller="Home" asp-action="RecipeList"><i class="fa fa-align-justify"></i>   Recipes</a>
+        </div>
+
+        <div id="article" style="position: absolute; left: 0px; top: 325px; width: 980px; height: 800px; z-index: 2">
+            <div class="p-4 row">
+                <div class="col"><h4>@ViewBag.Title</h4></div>
+                <div class="col-2">
+                    <a class="btn btn-sm btn-primary" style="width:140px;" asp-action="Logout" asp-controller="Account">Log out</a>
+                    <br>
+                </div>
+            </div>
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-success mt-1">@TempData["message"]</div>
+            }
+            @RenderBody()
+        </div>
+
+        <div id="footer" style="position: absolute; left: 0px; top: 1150px; width: 980px; height: 130px; z-index: 3">
+            <br>
+            <p>Please contact us if you have any questions.</p>
+            <p>Our Email: <a href="mailto:sanmerge@gmail.com">sanmerge@gmail.com</a></p>
+            <p id="copyright">&nbsp;&copy;Copyright Xiaojing Xu -Centennial College- COMP229-Assignment1</p>
+        </div>
+
+    </div>
+</body>
+</html>

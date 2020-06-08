@@ -1,0 +1,46 @@
+﻿@model RecipeListViewModel;
+@{
+    ViewBag.Title = "Recipe List";
+}
+
+<h1>List of our fantastic smoothy bowls</h1>
+<form asp-controller="Home" asp-action="RecipeList" method="post">
+    <table width:"100%">
+        <tr>
+            <td width="100%"><input type="text" name="searchingString" class="form-control" placeholder="Enter to search"></td>
+            <td ><button style="float: right; width:100px" type="submit" class="btn btn-sm btn-primary">
+                     <i class="fa fa-fw fa-search"></i>Search</button></td>
+        </tr>
+    </table>    
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Recipe Name</td>
+            <td>Main Ingredients</td>
+            <td>Yields</td>
+            <td>Total Time</td>
+            <td>Details</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model.Recipes)
+        {
+            <tr>
+                <td>@s.Name</td>
+                <td>@s.MainIngredients</td>
+                <td>@s.Yields</td>
+                <td>@s.Minutes minutes</td>
+                <td><a asp-action="ViewRecipe" asp-controller="Home" asp-route-id="@s.RecipeID">View Here</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div page-model="@Model.PagingInfo"
+     page-action="RecipeList"
+     page-classes-enabled="true"
+     page-class="btn"
+     page-class-normal="btn-secondary"
+     page-class-selected="btn-primary"></div>
+
+

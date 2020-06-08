@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/AssignmentStyles.css" />
+    <style>
+
+        .navbar {
+            width: 100%;
+            background-color: #555;
+            overflow: auto;
+        }
+
+            .navbar a {
+                float: left;
+                padding: 0 80px 0 70px;
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+            }
+
+        .navbar a:hover {
+          background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="allPage">
+        <div id="header" style="position: absolute; left: 0px; top: 0px; width: 980px; height: 230px; z-index: 1">
+            <img src="~/images/bannerbanner.jpg" alt="banner" width="980">
+        </div>
+
+        <div class="navbar" style="position: absolute; left: 0px; top: 275px; width: 980px; z-index: 2">
+                <a asp-controller="Home" asp-action="index"><i class="fa fa-fw fa-home"></i>   Home</a>
+                <a asp-controller="Account" asp-action="Login"><i class="fa fa-fw fa-user"></i>   Login</a>
+                <a href="mailto:sanmerge@gmail.com"><i class="fa fa-fw fa-envelope"></i>   Contact</a>
+                <a asp-controller="Home" asp-action="RecipeList"><i class="fa fa-align-justify"></i>   Recipes</a>
+
+        </div>
+
+        <div id="article" style="position: absolute; left: 0px; top: 325px; width: 980px; height: 800px; z-index: 2">
+            @RenderBody()
+        </div>
+
+
+        <div id="footer" style="position: absolute; left: 0px; top: 1150px; width: 980px; height: 130px; z-index: 3">
+            <br>
+            <p>Please contact us if you have any questions.</p>
+            <p>Our Email: <a href="mailto:sanmerge@gmail.com">sanmerge@gmail.com</a></p>
+            <p id="copyright">&nbsp;&copy;Copyright Group1 -Centennial College- COMP229-Project Assignment</p>
+        </div>
+
+    </div>
+</body>
+</html>
